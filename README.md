@@ -12,6 +12,11 @@ https://github.com/javascriptru/angularpro-20180529-2130
 Дополнительные Вопросы:
 
 - injectable({providedIn: Module})
+- without doCheck - https://stackblitz.com/edit/angular-cez5ej?file=src%2Fapp%2Fone%2Fone.component.ts
+- изменение формата named outlets url
+- forRoot/forChild
+- validators.compose() vs array validators
+- combineLatest pipable?
 
 ##### Максим М.
 
@@ -48,3 +53,7 @@ https://github.com/javascriptru/angularpro-20180529-2130
 - сделать pipe, который будет показывать timeAgo
 
 - завернуть форму регистрации пользователя (стандартные поля) в angular-element. Сделать параметром: показывать минимальную форму или расширенную. Считывать событие успешного заполнения/отправки формы и ошибок формы.
+
+- сделать "светофор" FormCotrol и к нему валидатор (красный - invalid)
+
+- сделать свой Observable класс/конструктор
