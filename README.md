@@ -17,6 +17,9 @@ https://github.com/javascriptru/angularpro-20180529-2130
 - forRoot/forChild
 - validators.compose() vs array validators
 - combineLatest pipable?
+- живой пример на flatMap
+- инициализировать стэйт ngrx через SSR
+- ngrx/router
 
 ##### Максим М.
 

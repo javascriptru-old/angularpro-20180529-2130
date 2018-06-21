@@ -159,11 +159,79 @@ import { tap, delay, delayWhen, timeout, finalize } from 'rxjs/operators';
 //   console.log(number * Math.random());
 // }), timeout(2000), finalize(() => console.log('HERE!')));
 
-const o = timer(0, 1000).pipe(take(1));
-o.toPromise().then(console.log)
+// const o = timer(0, 1000).pipe(take(1));
+// o.toPromise().then(console.log)
 
 // const subscription = o.subscribe({
 //   next: (value: number ) => console.log('Next:', value),
+//   complete: () => console.log('Complete!'),
+//   error: (error) => console.log('Error', error)
+// });
+
+
+import { pluck, reduce, scan, groupBy } from 'rxjs/operators';
+import { mapTo, flatMap, exhaustMap } from 'rxjs/operators';
+
+// flatMap === mergeMap
+
+// const o = Observable.create((observer: Observer<{name: string, surname: string}>) => {
+//   observer.next({ name: 'John', surname: 'Wall'});
+//   observer.next({ name: 'Bob', surname: 'Wall'});
+
+//   setTimeout(_ => {
+//     observer.next({ name: 'Bob', surname: 'Wood'});
+//   }, 3000);
+// }).pipe(pluck('name'), distinctUntilChanged());
+
+// const o = of(1,2,3,4,5)
+// .pipe(scan((total:number, current:number) => total + current));
+
+// const o = of(1,2,3,4,5)
+// .pipe(mapTo('Hi!'));
+
+// [[1,2,3],[4,5]] => [1,2,3,4,5]
+
+//const o = fromEvent(document, 'click')
+//.pipe(flatMap(_ => interval(1000)));
+// .pipe(switchMap(_ => interval(1000)));
+//.pipe(exhaustMap(_ => interval(1000)));
+
+import { catchError, retry, retryWhen } from 'rxjs/operators'
+
+// const o = of(true).pipe(delay(3000), timeout(1000), catchError((error) => {
+//   console.log(error);
+//   return of(false);
+// }));
+
+// const o = interval(1000).pipe(
+//   flatMap(v => {
+//     if(v > 3){
+//       return throwError('Error >3!');
+//     }
+//     return of(v);
+//   })
+//   ,retryWhen(errorObservable => errorObservable.pipe(delay(3000)))
+// );
+
+
+import { multicast, publish, share, shareReplay } from 'rxjs/operators';
+
+// COLD / HOT
+
+const o = interval(1000)
+.pipe(tap(_ => console.log('Doing something!')), shareReplay(Number.POSITIVE_INFINITY, 5000))
+
+o.subscribe();
+o.subscribe();
+o.subscribe();
+o.subscribe();
+o.subscribe();
+o.subscribe();
+o.subscribe();
+o.subscribe();
+
+// const subscription = o.subscribe({
+//   next: (value: any ) => console.log('Next:', value),
 //   complete: () => console.log('Complete!'),
 //   error: (error) => console.log('Error', error)
 // });
