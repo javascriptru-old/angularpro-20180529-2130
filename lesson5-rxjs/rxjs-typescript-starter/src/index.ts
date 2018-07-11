@@ -28,7 +28,7 @@ const myInput = document.querySelector('input');
 
 
 import { fromEvent, Observable, Observer, empty, throwError, Subject } from 'rxjs';
-import { map, switchMap, debounceTime } from 'rxjs/operators';
+import { map, switchMap, debounceTime, observeOn } from 'rxjs/operators';
 
 // const o = fromEvent(myInput, 'input');
 // o.pipe(debounceTime(500),
@@ -215,23 +215,49 @@ import { catchError, retry, retryWhen } from 'rxjs/operators'
 
 
 import { multicast, publish, share, shareReplay } from 'rxjs/operators';
+import { asyncScheduler, queueScheduler, asapScheduler } from 'rxjs';
 
 // COLD / HOT
 
-const o = interval(1000)
-.pipe(tap(_ => console.log('Doing something!')), shareReplay(Number.POSITIVE_INFINITY, 5000))
+// const o = interval(1000)
+// .pipe(tap(_ => console.log('Doing something!')), shareReplay(Number.POSITIVE_INFINITY, 5000))
 
-o.subscribe();
-o.subscribe();
-o.subscribe();
-o.subscribe();
-o.subscribe();
-o.subscribe();
-o.subscribe();
-o.subscribe();
+// o.subscribe();
+// o.subscribe();
+// o.subscribe();
+// o.subscribe();
+// o.subscribe();
+// o.subscribe();
+// o.subscribe();
+// o.subscribe();
 
 // const subscription = o.subscribe({
 //   next: (value: any ) => console.log('Next:', value),
 //   complete: () => console.log('Complete!'),
 //   error: (error) => console.log('Error', error)
 // });
+
+
+// const o1 = of(1,2).pipe(observeOn(asyncScheduler));
+// const o2 = of(10);
+
+// const o = combineLatest(o1, o2);
+
+// o.subscribe({
+//   next: (value: any ) => console.log('Next:', value),
+//   complete: () => console.log('Complete!'),
+//   error: (error) => console.log('Error', error)
+// });
+
+
+const async$ = of('async').pipe(observeOn(asyncScheduler));
+const asap$ = of('asap').pipe(observeOn(asapScheduler));
+const queue$ = of('queue').pipe(observeOn(queueScheduler));
+
+const o = async$.pipe(merge(asap$, queue$));
+
+o.subscribe({
+  next: (value: any ) => console.log('Next:', value),
+  complete: () => console.log('Complete!'),
+  error: (error) => console.log('Error', error)
+});
