@@ -20,6 +20,7 @@ https://github.com/javascriptru/angularpro-20180529-2130
 - живой пример на flatMap
 - инициализировать стэйт ngrx через SSR
 - ngrx/router
+- unit-tests how to run one test
 
 ##### Максим М.
 
