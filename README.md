@@ -13,10 +13,10 @@ https://github.com/javascriptru/angularpro-20180529-2130
 
 - injectable({providedIn: Module})
 - without doCheck - https://stackblitz.com/edit/angular-cez5ej?file=src%2Fapp%2Fone%2Fone.component.ts
-- изменение формата named outlets url
-- forRoot/forChild
-- validators.compose() vs array validators
-- combineLatest pipable?
+- изменение формата named outlets url (nope, source)
+- forRoot/forChild (stackoverflow)
+- validators.compose() vs array validators (official docs)
+- combineLatest pipable?  (YES)
 - живой пример на flatMap
 - инициализировать стэйт ngrx через SSR
 - ngrx/router
