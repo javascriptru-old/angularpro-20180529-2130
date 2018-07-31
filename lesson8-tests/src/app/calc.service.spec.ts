@@ -2,7 +2,7 @@ import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 
 import { CalcService } from './calc.service';
 
-describe('CalcService', () => {
+fdescribe('CalcService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [CalcService]

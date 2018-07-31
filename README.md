@@ -11,16 +11,16 @@ https://github.com/javascriptru/angularpro-20180529-2130
 
 Дополнительные Вопросы:
 
-- injectable({providedIn: Module})
+- injectable({providedIn: Module}) - https://github.com/angular/angular/issues/24082
 - without doCheck - https://stackblitz.com/edit/angular-cez5ej?file=src%2Fapp%2Fone%2Fone.component.ts
-- изменение формата named outlets url (nope, source)
-- forRoot/forChild (stackoverflow)
-- validators.compose() vs array validators (official docs)
-- combineLatest pipable?  (YES)
+- изменение формата named outlets url (nope, source) - https://github.com/angular/angular/blob/master/packages/router/src/url_handling_strategy.ts
+- forRoot/forChild - https://stackoverflow.com/questions/40498081/routermodule-forrootroutes-vs-routermodule-forchildroutes
+- validators.compose() vs array validators - https://angular.io/api/forms/Validators#compose
+- combineLatest pipable?  - https://www.learnrxjs.io/operators/combination/combinelatest.html
 - живой пример на flatMap
-- инициализировать стэйт ngrx через SSR
+- инициализировать стэйт ngrx через SSR - https://github.com/ngrx/platform/issues/101
 - ngrx/router
-- unit-tests how to run one test
+- unit-tests how to run one test - fit() / fdescribe()
 
 ##### Максим М.
 
@@ -56,7 +56,20 @@ https://github.com/javascriptru/angularpro-20180529-2130
 
 - JIT для "чайников"
 - AOT для "чайников"
-- Отличия JIT от AOT и почему для prod рекомендуетя использовать именно AOT
+- Отличия JIT от AOT и почему для prod рекомендуетя использовать именно AOT - https://angular.io/guide/aot-compiler#why-compile-with-aot
+
+
+
+
+Дополнительно
+
+- RouteReuseStrategy
+- IVY ChangeDetection
+
+
+
+
+
 
 Первое занятие - 5.06
 
